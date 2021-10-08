@@ -77,7 +77,7 @@ def pre_process_landmark(landmark_list):
     return temp_landmark_list
  
 def logging_csv(number, landmark_list):
-    csv_path = 'CSV/test_data.csv'
+    csv_path = 'CSV/hand_landmarks.csv'
     with open(csv_path, 'a', newline="") as f:
         writer = csv.writer(f)
         writer.writerow([number, *landmark_list])
@@ -114,7 +114,7 @@ def main():
  
                
                 #Writes to CSV
-                logging_csv(3, pre_lml)
+                logging_csv(4, pre_lml)
  
         cv2.imshow("Image", img)
  
