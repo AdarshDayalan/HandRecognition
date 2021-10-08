@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import copy
 import itertools
-import model
+# import model
  
 def calc_bounding_rect(image, landmarks):
     image_width, image_height = image.shape[1], image.shape[0]
@@ -85,6 +85,7 @@ def logging_csv(number, landmark_list):
 def main():
     mpHands = mp.solutions.hands
     hands = mpHands.Hands(False)
+    mpDraw = mp.solutions.drawing_utils
  
     cap = cv2.VideoCapture(0)
  
@@ -95,16 +96,17 @@ def main():
  
         if results.multi_hand_landmarks:
             for handLMS in results.multi_hand_landmarks:
+                # mpDraw.draw_landmarks(img, handLMS, mpHands.HAND_CONNECTIONS)
                 text = "None"
-                #Normalizes Data
+                # #Normalizes Data
                 lml = calc_landmark_list(img, handLMS)
                 pre_lml = pre_process_landmark(lml)
-                pre_lml = (np.expand_dims(pre_lml,0))
+                # pre_lml = (np.expand_dims(pre_lml,0))
  
-                probability_values = model.probability_model.predict(pre_lml)[0]
+                # probability_values = model.probability_model.predict(pre_lml)[0]
  
-                if(np.max(probability_values) > 0.90):
-                    text = model.label_names[np.argmax(probability_values)]
+                # if(np.max(probability_values) > 0.90):
+                #     text = model.label_names[np.argmax(probability_values)]
  
                 #Draws Box
                 b_rect = calc_bounding_rect(img, handLMS)
@@ -112,7 +114,7 @@ def main():
  
                
                 #Writes to CSV
-                #logging_csv(1, pre_lml)
+                logging_csv(2, pre_lml)
  
         cv2.imshow("Image", img)
  
