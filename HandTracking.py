@@ -114,7 +114,7 @@ def main():
  
                
                 #Writes to CSV
-                logging_csv(2, pre_lml)
+                logging_csv(3, pre_lml)
  
         cv2.imshow("Image", img)
  

@@ -22,11 +22,11 @@ test_y = pd.read_csv(test_path, delimiter=',', header=None, usecols=[0])
 test_input = tf.convert_to_tensor(test_x)
 test_labels = tf.convert_to_tensor(test_y)
  
-label_names = ['open', 'closed', 'blood']
+label_names = ['open', 'closed', 'back', 'blood']
  
 model = tf.keras.Sequential([
     tf.keras.layers.Dense(41),
-    tf.keras.layers.Dense(2)
+    tf.keras.layers.Dense(4)
 ])
  
 model.compile(optimizer='adam',
