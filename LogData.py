@@ -1,12 +1,11 @@
 import cv2
 import csv
 import mediapipe as mp
-import time
 import numpy as np
-import pandas as pd
 import copy
 import itertools
-import HandModel
+
+label_num = 11
  
 def calc_bounding_rect(image, landmarks):
     image_width, image_height = image.shape[1], image.shape[0]
@@ -31,13 +30,7 @@ def draw_bounding_rect(use_brect, image, brect, text, run):
         # Outer rectangle
         cv2.rectangle(image, (brect[0], brect[1]), (brect[2], brect[3]),
                      (0, 0, 0), 1)
-        cv2.putText(image, text, (brect[0], brect[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,255), 2)
-        running = "Off"
-        color = (0,0,255)
-        if(run):
-            running = "On"
-            color = (0,255,0)
-        cv2.putText(image, "Running: " + running, (0, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.9, color, 2)
+        cv2.putText(image, text, (brect[0], brect[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0,0,255), 2)
  
     return image
  
@@ -91,52 +84,25 @@ def logging_csv(number, landmark_list):
 def main():
     mpHands = mp.solutions.hands
     hands = mpHands.Hands(static_image_mode=False,max_num_hands=1,min_detection_confidence=0.5)
-    # mpDraw = mp.solutions.drawing_utils
 
-    curret_state = 0
-    prev_state = 7
- 
     cap = cv2.VideoCapture(0)
-
-    run = False
-    # wyze_url = "rtsp://wyze:adarsh123@192.168.86.21/live"
-    # cap = cv2.VideoCapture(wyze_url)
  
     while (cap.isOpened()):
         success, img = cap.read()
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         results = hands.process(imgRGB)
-        # img = cv2.resize(img, (960, 540))
  
         if results.multi_hand_landmarks:
             for handLMS in results.multi_hand_landmarks:
-                # mpDraw.draw_landmarks(img, handLMS, mpHands.HAND_CONNECTIONS)
                 text = "None"
-                # #Normalizes Data
                 lml = calc_landmark_list(img, handLMS)
                 pre_lml = pre_process_landmark(lml)
-                pre_lml = (np.expand_dims(pre_lml,0))
-    
-                probability_values = HandModel.probability_model.predict(pre_lml)[0]
 
-                if(np.max(probability_values) > 0.90):
-                    curret_state = np.argmax(probability_values)
-                    # print(curret_state)
-                    if(curret_state != prev_state):
-                        if(prev_state == 1 and curret_state == 0):
-                            run = True
-                        elif(curret_state == 1):
-                            print(HandModel.label_names[curret_state])
-                            run = False
-                        prev_state = curret_state
-                        if(run):
-                            print(HandModel.label_names[curret_state])
-                    if(run):
-                        text = HandModel.label_names[curret_state] + " " + str(np.max(probability_values))
-
+                logging_csv(label_num, pre_lml)
+                
                 #Draws Box
                 b_rect = calc_bounding_rect(img, handLMS)
-                img = draw_bounding_rect(True, img, b_rect, text, run)
+                img = draw_bounding_rect(True, img, b_rect, text)
         
         cv2.imshow("Image", img)
  
