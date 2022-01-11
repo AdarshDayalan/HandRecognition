@@ -7,13 +7,13 @@ import itertools
 import math
 import time
 
-import HandModel
+import Helpers.HandModel as HandModel
 from threading import Thread
 
-import constants
-from constants import label_names
+import Helpers.constants as constants
+from Helpers.constants import label_names
 
-from key_press import swipe, scroll, mouse, press
+from Helpers.key_press import swipe, scroll, mouse, press
 
 motion_data = []
 motion_data_0 = []
