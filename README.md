@@ -1,14 +1,18 @@
 # Wave
 Computer Hand-Gesture Control 
 
-## Description
+### Description
+Machine Learning program that recognizes programmable hand poses and gestures and performs desired computer navigations.
+Basically you can control you computer with hand gestures.
 
-## Demo
+For example, a wave of your hand will switch tabs, a pointer finger controls the mouse, two fingers will scroll up or down, and much more.
 
-## Applications
+### Demo
 
-## How I made it
+### Applications
 
-## Problems
+### How I made it
 
-## Future
+### Problems
+
+### Future
