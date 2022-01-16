@@ -39,6 +39,8 @@ First I cleary wrote down what I wanted to make so I had a direct goal to work t
 
 ## Future
 
-Right now to run this software you need python and all it's dependencies installed. This is very "bulky" and complicated for everyday users.\
-Moving forward, I want to integrate it on the .NET framewok and turn it into a computer application that runs in the background so it's more accessible and easier to use.\
+Right now to run this software you need python and all it's dependencies installed. This is very "bulky" and complicated for everyday users.
+
+Moving forward, I want to integrate it on the .NET framewok and turn it into a computer application that runs in the background so it's more accessible and easier to use.
+
 There can alse be options to program your own hand gestures and set it to do whatever mouse and keyboard inputs the user desires for more customization and personal experience.
