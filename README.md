@@ -29,7 +29,7 @@ First I cleary wrote down what I wanted to make so I had a direct goal to work t
 | Week          | Objective                             | How I Acheived It                                                                    |
 | ------------- |:-------------:                        | ---                                                                                  |
 | Week 1        | Research                              | Researched Neural Networks, OpenCV, Tensorflow, and MediaPipe                        |
-| Week 2        | Hand Recognition + Data Extraction    | Implemented MediaPipe with python                                                    |
+| Week 2        | Hand Recognition + Data Extraction    | Read documentation and implemented MediaPipe with python                             |
 | Week 3        | ML model for pose classification      | Trained a ML model with Tensorflow with xyz coordinated of hand landmarks            |
 | Week 4        | Test and train for more poses         | Added 14 poses with variation in the dataset and dropout layers to maximize accuracy |
 | Week 5        | Add computer navigation functionality | Used windows libraries in python to control keyboard shortcuts and the mouse         |
@@ -37,6 +37,8 @@ First I cleary wrote down what I wanted to make so I had a direct goal to work t
 
 ## Problems
 
-## Applications
-
 ## Future
+
+Right now to run this software you need python and all it's dependencies installed. This is very "bulky" and complicated for everyday users.\
+Moving forward, I want to integrate it on the .NET framewok and turn it into a computer application that runs in the background so it's more accessible and easier to use.\
+There can alse be options to program your own hand gestures and set it to do whatever mouse and keyboard inputs the user desires for more customization and personal experience.
