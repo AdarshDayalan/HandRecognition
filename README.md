@@ -1,3 +1,14 @@
 # Wave
+Computer Hand-Gesture Control 
 
-In Progress
+## Description
+
+## Demo
+
+## Applications
+
+## How I made it
+
+## Problems
+
+## Future
