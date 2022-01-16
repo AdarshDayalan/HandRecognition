@@ -19,7 +19,7 @@ My goal was to make a Computer Hand-Gesture Control system. Seemed very intimida
 
 In parts, I needed to classify hand poses and then I needed to make it navigate the computer. That's a little better.
 
-To classify hand poses, it first need to recognize a hand and then have a ML model output what pose the hand is in.
+To classify hand poses, it first need to recognize a hand and then have a ML model output what pose the hand is in.\
 To navigate the computer I can use make the program input keyboard shortcuts or move the mouse position to switch tabs, scoll, click, etc.
 
 
