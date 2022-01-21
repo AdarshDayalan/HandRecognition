@@ -15,7 +15,7 @@ For example, a *wave* of your hand will switch tabs, a pointer finger controls t
 
 ## How I made it
 
-First I cleary wrote down what I wanted to make so I had a direct goal to work towards and then broke that goal down into manageble parts. 
+First I clearly wrote down what I wanted to make so I had a direct goal to work towards and then broke that goal down into manageble parts. 
 
 ### Goal
 > Make a Computer Hand-Gesture Control system. Seemed very intimidating and overwhelming.
