@@ -7,7 +7,7 @@ Provide a more intuitive and intelligent method of computer navigation
 ## Description
 Wave is a machine learning program that recognizes programmable hand poses and gestures and performs desired computer navigations.
 
-Basically you can control you computer with hand gestures.
+Basically you can control your computer with hand gestures.
 
 For example, a *wave* of your hand will switch tabs, a pointer finger controls the mouse, two fingers will scroll up or down, and much more.
 
